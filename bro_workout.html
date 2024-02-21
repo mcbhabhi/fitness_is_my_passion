@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bro Workout</title>
+    <style>
+       body {
+            font-family: 'Arial', sans-serif;
+            background-color: #580000; 
+            color:  #FFD700;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            background-image: url(pix/bro.jpg);
+            background-size: cover; 
+            background-position: center; 
+            opacity: 0.9; 
+        }
+
+        #workoutContainer 
+        {
+            max-width: 1200px;
+            background-color:  #580000; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        h1, h2
+        {
+            color:  #FFD700;
+        }
+
+        .exercise h2 
+        {
+            color: #FFF; 
+        }
+
+        .exercise p 
+        {
+            color: #FFF;
+        }
+
+        a 
+        {
+            color:  #FFD700;
+        }
+        
+        iframe {
+            
+            height: 200px; 
+        }
+
+        a {
+            color: #FFD700;
+        }
+
+        td {
+            padding: 50px;
+            max-width: 300px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="workoutContainer">
+        <h1>Bro Workout</h1>
+        <h2>3 days a week</h2>
+    
+        <script>
+            const exercises = [
+                {
+                    name: "Bicep Curls",
+                    sets: "3 sets",
+                    reps: "x 12 reps",
+                    videoLink: "q8jjwZbhBas"
+                },
+                {
+                    name: "Tricep Dips",
+                    sets: "3 sets",
+                    reps: "x 12 reps",
+                    videoLink: "Tw0axi-Jlqc"
+                },
+                {
+                    name: "Chest Flyes",
+                    sets: "3 sets",
+                    reps: "x 15 reps",
+                    videoLink: "_LwuS1PdbdM"
+                },
+                {
+                    name: "Lateral Raises:",
+                    sets: "3 sets",
+                    reps: "x 15 reps",
+                    videoLink: "n5dsI9qQXwY"
+                },
+                {
+                    name: "Deadlift",
+                    sets: "4 sets",
+                    reps: "x 5 reps",
+                    videoLink: "AweC3UaM14o"
+                },
+                {
+                    name: "Lat Pulldowns",
+                    sets: "3 sets",
+                    reps: "x 12 reps",
+                    videoLink: "VXKfH6ciEBI"
+                }
+            ];
+    
+            let tableHtml = '<table><tr>';
+    
+            exercises.forEach((exercise, index) => {
+                tableHtml += `
+                    <td class="exercise">
+                        <h2>${exercise.name}</h2>
+                        <p>${exercise.sets} ${exercise.reps}</p>
+                        <iframe src="https://www.youtube.com/embed/${exercise.videoLink}" allowfullscreen></iframe>
+                    </td>
+                `;
+    
+                if ((index + 1) % 3 === 0 && index < exercises.length - 1) {
+                    tableHtml += '</tr><tr>';
+                }
+            });
+    
+            tableHtml += '</tr></table>';
+            document.write(tableHtml);
+        </script>
+    
+    </div>
+
+</body>
+</html>

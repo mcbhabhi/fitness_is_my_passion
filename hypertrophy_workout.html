@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypertrophy Workout</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #580000; 
+            color:  #FFD700;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            background-image: url(pix/hypertrophy.jpg);
+            background-size: cover; 
+            background-position: center; 
+            opacity: 0.9; 
+        }
+
+        #workoutContainer 
+        {
+            max-width: 1200px;
+            background-color:  #580000; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+
+        h1, h2
+        {
+            color:  #FFD700;
+        }
+
+        .exercise h2 
+        {
+            color: #FFF; 
+        }
+
+        .exercise p 
+        {
+            color: #FFF;
+        }
+
+        a 
+        {
+            color:  #FFD700;
+        }
+        
+        iframe {
+            
+            height: 200px; 
+        }
+
+        a {
+            color: #FFD700;
+        }
+
+        td {
+            padding: 50px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="workoutContainer">
+        <h1>Hypertrophy Workout</h1>
+        <h2>3 days a week</h2>
+    
+        <script>
+            const exercises = [
+                {
+                    name: "Lunges",
+                    sets: "4 sets",
+                    reps: "x 10 reps",
+                    videoLink: "Z6R8A5tcrTc"
+                },
+                {
+                    name: "Dumbbell Chest Press",
+                    sets: "4 sets",
+                    reps: "x 10 reps",
+                    videoLink: "0f6-uCUKqgA"
+                },
+                {
+                    name: "Leg Curls",
+                    sets: "3 sets",
+                    reps: "x 12 reps",
+                    videoLink: "Orxowest56U"
+                },
+                {
+                    name: "Dumbbell Rows",
+                    sets: "3 sets",
+                    reps: "x 12 reps",
+                    videoLink: "jO5gv181MGg"
+                },
+                {
+                    name: "Bicep Curls",
+                    sets: "3 sets",
+                    reps: "x 12 reps",
+                    videoLink: "q8jjwZbhBas"
+                },
+                {
+                    name: "Skull Crushers",
+                    sets: "3 sets",
+                    reps: "x 12 reps",
+                    videoLink: "8t2a93BjDec"
+                },
+                {
+                    name: "Shoulder Press",
+                    sets: "3 sets",
+                    reps: "x 12 reps",
+                    videoLink: "GGpArq725ls"
+                }
+            ];
+    
+            let tableHtml = '<table><tr>';
+    
+            exercises.forEach((exercise, index) => {
+                tableHtml += `
+                    <td class="exercise">
+                        <h2>${exercise.name}</h2>
+                        <p>${exercise.sets} ${exercise.reps}</p>
+                        <iframe src="https://www.youtube.com/embed/${exercise.videoLink}" allowfullscreen></iframe>
+                    </td>
+                `;
+    
+                if ((index + 1) % 3 === 0 && index < exercises.length - 1) {
+                    tableHtml += '</tr><tr>';
+                }
+            });
+    
+            tableHtml += '</tr></table>';
+            document.write(tableHtml);
+        </script>
+    
+    </div>
+
+</body>
+</html>

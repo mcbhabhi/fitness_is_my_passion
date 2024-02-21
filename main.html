@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piggy's Bar</title>
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #580000;
+            color:  #FFD700;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url(pix/homepage_background.jpg);
+            background-size: cover; 
+            background-position: center; 
+            opacity: 0.9;
+        }
+
+        #formContainer {
+            background-color: #580000; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 01);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            color: #FFF; 
+        }
+
+        input {
+            width: 100%;
+            padding: 7px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #FFD700;
+            color: #580000; 
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;   
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="formContainer">
+
+        <h1 style="font-size: 40px;">Fitness is my Passion</h1>
+
+        <form id="userDetailsForm">
+
+            <!-- Textboxes -->
+            <label for="name" style="font-size: 20px;">Name:</label>
+            <input type="text" id="name" style="font-size: 15px;">
+
+            <label for="age" style="font-size: 20px;">Age:</label>
+            <input type="number" id="age" style="font-size: 15px;">
+
+            <label for="height" style="font-size: 20px;">Height (in cm):</label>
+            <input type="number" id="height" style="font-size: 15px;">
+
+            <label for="weight" style="font-size: 20px;">Weight (in kg):</label>
+            <input type="number" id="weight" style="font-size: 15px;">
+
+            <button type="button" onclick="calculateBMI()" style="font-size: 20px;">Calculate BMI</button>
+            <br><br>
+
+            <!-- Result -->
+            <div id="result">Your BMI:</div><br>
+
+            <!-- Dropdown -->
+            <label for="workoutType" style="font-size: 20px;">Select Workout Type:</label>
+            <select id="workoutType" style="font-size: 15px;">
+                <option value="Strength" >Strength</option>
+                <option value="Hypertrophy">Hypertrophy</option>
+                <option value="Endurance">Endurance</option>
+                <option value="Mobility">Mobility</option>
+                <option value="BroWorkout">Bro Workout</option>
+            </select>
+
+            <br><br>
+            <button type="button" onclick="redirectToPage()" style="font-size: 20px;">Go to Workout Page</button>
+
+        </form>
+
+    </div>
+
+    <script>
+         document.addEventListener("keyup", 
+         
+         function(event) 
+         {
+            if (event.key === "Enter") 
+            {
+                calculateBMI();
+            }
+        });
+
+        function calculateBMI() 
+        {
+            const name = document.getElementById("name").value;
+            const age = parseInt(document.getElementById("age").value);
+            const height = parseFloat(document.getElementById("height").value);
+            const weight = parseFloat(document.getElementById("weight").value);
+            
+            const bmi = weight / ((height / 100) * (height / 100));
+
+            document.getElementById("result").innerHTML = `Hello ${name}! Your BMI is ${bmi.toFixed(2)}.`;
+        }
+
+        function redirectToPage() 
+        {
+            const selectedWorkoutType = document.getElementById("workoutType").value;
+
+            let redirectURL;
+
+            switch (selectedWorkoutType) 
+            {
+                case "Strength":
+                    redirectURL = "strength_workout.html";
+                    break;
+
+                case "Hypertrophy":
+                    redirectURL = "hypertrophy_workout.html";
+                    break;
+
+                case "Endurance":
+                    redirectURL = "endurance_workout.html";
+                    break;
+                    
+                case "Mobility":
+                    redirectURL = "mobility_workout.html";
+                    break;
+
+                case "BroWorkout":
+                    redirectURL = "bro_workout.html";
+                    break;
+
+                default:
+                    break;
+            }
+
+            window.location.href = redirectURL;
+        }
+    </script>
+
+</body>
+</html>
